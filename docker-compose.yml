@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - "./:/var/www/html"
+    ports:
+      - "9000:9000"
+  web:
+    image: nginx
+    volumes:
+      - './:/var/www/html'
+      - './docker/nginx/conf.d:/etc/nginx/conf.d'
+    ports:
+      - "80:80"
+  composer:
+    image: composer
+    command: composer install
+    volumes:
+      - ".:/app"
