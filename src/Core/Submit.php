@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-class Submit extends AbstractElement implements Element
+class Submit extends Input implements Element
 {
     public function __construct(string $id, string $Name, string $Type = "submit")
     {

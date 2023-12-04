@@ -10,6 +10,8 @@ class Application
 
     public static $app;
 
+    public array $controllers;
+
     public function __construct()
     {
         self::$app = $this;
@@ -26,6 +28,10 @@ class Application
     public function addRoute(string $method, string $path, mixed $callback): void
     {
         $this->router->addRoute($method, $path, $callback);
+    }
+
+    public function registerControllers( array $controllers){
+        $this->router->registerControllers($controllers);
     }
 
     public function run()
